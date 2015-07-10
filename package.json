@@ -1,0 +1,14 @@
+{
+  "name": "PewPewPew",
+  "version": "0.0.1",
+  "description": "Shoot laser on aliens",
+  "author": [
+    "Vitor Carlos <vitor@v42.com.br>",
+    "Marcos Garcia"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "gulp": "^3.9.0"
+  },
+  "repository": ""
+}
