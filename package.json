@@ -4,7 +4,7 @@
   "description": "Shoot laser on aliens",
   "author": [
     "Vitor Carlos <vitor@v42.com.br>",
-    "Marcos Garcia"
+    "Marcos Garcia <marcos.asgarcia@gmail.com>"
   ],
   "dependencies": {},
   "devDependencies": {
