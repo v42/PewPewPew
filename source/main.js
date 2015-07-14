@@ -1,1 +1,1 @@
-console.log('test - main');
+var game = new Game(window.innerWidth, window.innerHeight, Phaser);
