@@ -1,0 +1,1 @@
+{"version":3,"sources":["another-script.js","main.js"],"names":["console","log"],"mappings":"AAAAA,QAAAC,IAAA,kBCAAD,QAAAC,IAAA","file":"main.js","sourcesContent":["console.log('another script');","console.log('test - main');"],"sourceRoot":"/source/"}
