@@ -10,11 +10,15 @@ gulp.task('js', function() {
              .pipe(gp_concat('concat.js'))
              .pipe(gulp.dest('js'))
              .pipe(gp_rename('main.js'))
-             .pipe(gp_uglify())
+             //.pipe(gp_uglify())
              .pipe(gp_sourcemaps.write('./'))
              .pipe(gulp.dest('js'));
 });
 
 gulp.task('default', ['js'], function() {
   console.log('done :)');
+});
+
+gulp.task('watch', function () {
+   gulp.watch('source/*', ['js']);
 });
