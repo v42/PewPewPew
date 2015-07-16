@@ -3,7 +3,7 @@ var BootState = function () {};
 BootState.prototype.preload = function() {};
 
 BootState.prototype.create = function() {
-	this.game.stage.backgroundColor = '#fafafa';
+	this.game.stage.backgroundColor = '#000';
 	this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
 	this.scale.minWidth = 240;
 	this.scale.minHeight = 170;

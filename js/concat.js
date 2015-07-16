@@ -88284,5 +88284,92 @@ if (PIXI.Graphics.POLY === undefined)
 * "What matters in this life is not what we do but what we do for others, the legacy we leave and the imprint we make." - Eric Meyer
 */
 
-console.log('another script');
-console.log('test 213');
+var BootState = function () {};
+
+BootState.prototype.preload = function() {};
+
+BootState.prototype.create = function() {
+	this.game.stage.backgroundColor = '#000';
+	this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
+	this.scale.minWidth = 240;
+	this.scale.minHeight = 170;
+	this.scale.maxWidth = 2880;
+	this.scale.maxHeight = 1920;
+	this.scale.pageAlignHorizontally = true;
+	this.scale.setScreenSize(true);
+	this.state.start('Preload');
+};
+
+window.BootState = BootState;
+
+var Game = function (w, h, Phaser) {
+	this.instance = new Phaser.Game(w, h, Phaser.AUTO, '');
+	this.instance.state.add('Boot', BootState);
+	this.instance.state.add('Preload', Preload);
+	this.instance.state.add('Play', Play);
+	this.instance.state.start('Boot');
+};
+
+window.Game = Game;
+
+var Play = function () {};
+
+Play.prototype.preload = function() {};
+
+Play.prototype.create = function() {
+	this.spaceship = new Spaceship();
+	this.spaceship.create();
+};
+
+Play.prototype.update = function() {
+	this.spaceship.update();
+}
+
+window.Play = Play;
+var Preload = function () {};
+
+Preload.prototype.preload = function() {};
+
+Preload.prototype.create = function() {
+	this.state.start('Play');
+};
+
+window.Preload = Preload;
+var Spaceship = function() {
+    this.x     = 100;
+    this.y     = 0;
+    this.w     = 100;
+    this.h     = 100;
+    this.speed = 10;
+};
+
+Spaceship.prototype.create = function() {
+    this.graphics = game.instance.add.graphics(0, 0);
+
+    // draw a rectangle
+    this.graphics.lineStyle(2, 0x0000FF, 1);
+    this.graphics.drawRect(this.x, this.y, this.w, this.h);
+}
+
+Spaceship.prototype.update = function() {
+    if(game.instance.input.keyboard.isDown(Phaser.Keyboard.LEFT)) {
+        this.x -= this.speed;
+    }
+    if(game.instance.input.keyboard.isDown(Phaser.Keyboard.RIGHT)) {
+        this.x += this.speed;
+    }
+    if(game.instance.input.keyboard.isDown(Phaser.Keyboard.UP)) {
+        this.y -= this.speed;
+    }
+    if(game.instance.input.keyboard.isDown(Phaser.Keyboard.DOWN)) {
+        this.y += this.speed;
+    }
+
+    this.graphics.clear();
+    this.graphics.lineStyle(2, 0x0000FF, 1);
+    this.graphics.drawRect(this.x, this.y, this.w, this.h);
+}
+
+window.Spaceship = Spaceship;
+var game = new Game(window.innerWidth, window.innerHeight, Phaser);
+window.game = game;
