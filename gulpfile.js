@@ -1,4 +1,5 @@
 var gulp          = require('gulp'),
+    serve         = require('gulp-serve'),
     gp_concat     = require('gulp-concat'),
     gp_rename     = require('gulp-rename'),
     gp_uglify     = require('gulp-uglify'),
@@ -22,3 +23,5 @@ gulp.task('default', ['js'], function() {
 gulp.task('watch', function () {
    gulp.watch('source/*', ['js']);
 });
+
+gulp.task('serve', ['watch'], serve('.'));
